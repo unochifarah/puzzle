@@ -7,6 +7,9 @@ TagManager:
   - FallingObject
   - Spring
   - Water
+  - Grabbable
+  - Beast
+  - Ground
   layers:
   - Default
   - TransparentFX
