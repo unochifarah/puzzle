@@ -8,7 +8,11 @@ public class PlatformController : MonoBehaviour
     public PlayerScript playerScript;
     public float activationDistance;
 
-    GameObject player;
+    //public Transform cameraPositionWhenControllingPlatforms;
+
+    private GameObject player;
+    //private Camera mainCamera;
+    //private Transform originalCameraTransform;
 
     private int currentPlatformIndex = 0;
     private bool isControllingPlatforms = false;
@@ -16,6 +20,8 @@ public class PlatformController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        //mainCamera = Camera.main;
+        //originalCameraTransform = mainCamera.transform;
     }
 
     void Update()
@@ -36,6 +42,8 @@ public class PlatformController : MonoBehaviour
                 DisableScript();
                 isControllingPlatforms = true;
                 platforms[currentPlatformIndex].GetComponent<PlatformMovement>().StartControlling();
+                //mainCamera.transform.position = cameraPositionWhenControllingPlatforms.position;
+                //mainCamera.transform.rotation = cameraPositionWhenControllingPlatforms.rotation;
             }
             /*else
             {
@@ -57,6 +65,8 @@ public class PlatformController : MonoBehaviour
             EnableScript();
             isControllingPlatforms = false;
             platforms[currentPlatformIndex].GetComponent<PlatformMovement>().StopControlling();
+            //mainCamera.transform.position = originalCameraTransform.position;
+            //mainCamera.transform.rotation = originalCameraTransform.rotation;
         }
     }
 
